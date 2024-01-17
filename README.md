@@ -7,12 +7,13 @@ edited from development machine to verify git is configured correctly
 Browser-based games have become a ubiquitous form of entertainment, but anyone who's played one knows that generally, these games are designed to get you to spend as much time as possible online - which is the opposite of their ideal niche! The advantage of a browser game is that you can play easily from anywhere, so you can fill spare minutes in a long line or waiting for a train. This target means that a game should be simple, should not rely on other users being online, and, ideally, should be mentally demanding - keeping you attentive during the breaks in your schedule, not anesthetizing you. I propose the longstanding individual strategy game twenty-one, or blackjack, played against an automated dealer and tracking scores to show your progress and compete with friends. 
 
 ### Design
-//todo: put in my own images
-![Mock](voterMockUI.jpg)
-//todo
-Here is a sequence diagram that shows how to people would interact with the backend to vote.
-//todo
-![Voting sequence diagram](votingSequenceDiagram.png)
+The three basic pages of 21 to go will be laid out as follows:\
+Login:
+![login sketch](21togo_login_sketch.jpg)
+Gameplay:
+![gameplay sketch](21togo_play_sketch.jpg)
+Balance sheet:
+![balance sketch](21togo_balance_sketch.jpg)
 
 ### Key features
 
