@@ -1,4 +1,4 @@
-# startup
+# 21 to go
 core assignment for CS 260 
 edited from development machine to verify git is configured correctly
 
