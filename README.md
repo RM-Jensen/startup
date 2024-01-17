@@ -36,6 +36,7 @@ I am going to use the required technologies in the following ways.
   - login
   - retrieving balance information
   - playing a game (and recording the results)
+  - will use a third-party server to retrieve card images?
 - **DB/Login** - Store users and balances in database. Register and login users. Credentials securely stored in database. Can't play unless authenticated, can't wager more than current balance.
 - **WebSocket** - When your balance passes another user's, that user is notified. Defend your spot!
 - **React** - Application ported to use the React web framework.
