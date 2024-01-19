@@ -25,7 +25,7 @@ dev environment, production environment, user environment, and database environm
 \
 I resolved to not get suicidal this class and have already failed. It is 3:08 and I hate this class.\
 \
-ssh command (from git bash): ssh -i "C:\Users\ryanj\Documents\Classwork\CS 260\260 Server key.pem" ubuntu@54.165.2.66\
-(replace numbers after @ with the permanent ip address)
+ssh command (from git bash): ssh -i "C:\Users\ryanj\Documents\Classwork\CS 260\260 Server key.pem" ubuntu@34.233.153.235\
+
 
 
