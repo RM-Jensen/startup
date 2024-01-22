@@ -23,9 +23,11 @@ mongodb\
 \
 dev environment, production environment, user environment, and database environment\
 \
-I resolved to not get suicidal this class and have already failed. It is 3:08 and I hate this class.\
+I resolved to not get suicidal this period and have already failed. It is 3:08 and I hate this class.\
 \
 ssh command (from git bash): ssh -i "C:\Users\ryanj\Documents\Classwork\CS 260\260 Server key.pem" ubuntu@34.233.153.235\
 
 
-
+## Technology, cont. : Caddy, HTTPS, TLS
+Caddy recieves http request and interprets it to get the file we need, or pass the request on to the right service. Simplifies http parsing.\
+Https does two things: it encrypts your messages and requires the server to prove it is, in fact, the server it claims to be. 
