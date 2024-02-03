@@ -26,6 +26,7 @@
       
             <hr />
         </header>
+
         <main>
             <!-- deck, two hands (with cards), stake display/entry, two buttons, notifications
             when people change balance. looks like a mess without CSS -->
@@ -37,6 +38,13 @@
                 <p> Lee just lost $600!</p>
             </span>
 
+            <form id="stakeForm" action="formSubmit.html" method="post">
+                <label for="stake">Stake ($): </label>
+                <input type="number" name="stake" id="stake" min="1" max="10" step="1" />
+                <button type="submit">Deal</button>
+            </form>
+
+            <p>click deck to hit</p>
             <img id="deck" alt="deck" src="card_back.png"/>
             <ol id="houseCards">
                 <img id="houseCard1" alt="houseCard1" src="card_back.png"/>
