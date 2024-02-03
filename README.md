@@ -41,3 +41,14 @@ I am going to use the required technologies in the following ways.
 - **DB/Login** - Store users and balances in database. Register and login users. Credentials securely stored in database. Can't play unless authenticated, can't wager more than current balance.
 - **WebSocket** - When your balance passes another user's, that user is notified. Defend your spot!
 - **React** - Application ported to use the React web framework.
+
+## HTML Deliverable
+For this deliverable I built out the structure of my application using HTML.
+
+- **HTML pages** - Three HTML pages that represent the ability to login, play blackjack, and view player balances.
+- **Links** - Each page links to each other page in the header. 
+- **Text** - Text indicates how to login and hit (ask for another card from dealer). The application does not call for much text.
+- **Images** - Cardback images for the deck and house's cards are implemented. Same image is used as a placeholder for the player's cards, too - will be replaced once the application supports giving them actual cards.
+- **DB/Login** - Username and Password boxes with submit button for login. Scores shows different users' balances from the database.
+- **WebSocket** - Users are notified in real time when another user wins or loses a game. 
+- **Third Party Calls** - Balance sheet will use a third-party service to get conversion rate when showing values in Euros. 
