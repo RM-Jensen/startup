@@ -50,5 +50,5 @@ For this deliverable I built out the structure of my application using HTML.
 - **Text** - Text indicates how to login and hit (ask for another card from dealer). The application does not call for much text.
 - **Images** - Cardback images for the deck and house's cards are implemented. Same image is used as a placeholder for the player's cards, too - will be replaced once the application supports giving them actual cards.
 - **DB/Login** - Username and Password boxes with submit button for login. Scores shows different users' balances from the database.
-- **WebSocket** - Users are notified in real time when another user wins or loses a game. 
+- **WebSocket** - Users are notified in real time on play and scores pages when another user wins or loses a game. 
 - **Third Party Calls** - Balance sheet will use a third-party service to get conversion rate when showing values in Euros. 
