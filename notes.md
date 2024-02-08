@@ -25,7 +25,8 @@ dev environment, production environment, user environment, and database environm
 \
 I resolved to not get suicidal this period and have already failed. It is 3:08 and I hate this class.\
 \
-ssh command (from git bash): ssh -i "C:\Users\ryanj\Documents\Classwork\CS 260\260 Server key.pem" ubuntu@34.233.153.235\
+ssh command (from git bash):  ssh -i "C:\Users\ryanj\Documents\Classwork\CS 260\ServerKey.pem" ubuntu@34.233.153.235\
+
 
 
 ## Technology, cont. : Caddy, HTTPS, TLS
