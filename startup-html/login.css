@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 375px;
+}
+
+header {
+    background-color: darkgray;
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+    text-align: center
+}
