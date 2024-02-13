@@ -6,8 +6,8 @@ body {
 
 header {
     background-color: darkgray;
+    flex: 0 40px;
     display: flex;
     flex-direction: row;
-    padding: 5px 0;
-    text-align: center
+    align-items: center;
 }
