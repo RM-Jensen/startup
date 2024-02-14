@@ -1,15 +1,37 @@
-body {
-    display: flex;
-    flex-direction: column;
-    min-width: 375px;
-}
-
 header {
-    padding: 1.5em;
-    margin: 1.5em;
-    background-color: darkgray;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(66,74,83);
     flex: 0 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+header nav menu {
+    list-style-type: none;
+}
+
+nav menu li {
+  float: left;
+  margin-right: 0.5em;
+}
+
+nav menu li a {
+  padding: 0.25em 1em;
+  text-decoration: none; /* no underline */
+  background-color: rgb(66,74,83);
+  color: black;
+
+}
+
+nav menu li a:visited {
+    background-color: rgb(66,74,83);
+    color: black;
+}
+
+nav menu li a:hover, nav menu li a:focus {
+  color: black;
+  background-color: white;
+  font-weight: bold;
 }
