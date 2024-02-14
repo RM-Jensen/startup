@@ -5,6 +5,11 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 45px;
+}
+
+header h1, header span {
+    white-space: nowrap;
 }
 
 header nav menu {
