@@ -5,6 +5,8 @@ body {
 }
 
 header {
+    padding: 1.5em;
+    margin: 1.5em;
     background-color: darkgray;
     flex: 0 40px;
     display: flex;
