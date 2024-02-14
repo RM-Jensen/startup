@@ -1,8 +1,7 @@
 header {
     margin: 0;
     padding: 0;
-    background-color: rgb(66,74,83);
-    flex: 0 40px;
+    background-color: rgb(101,113,126);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -10,28 +9,50 @@ header {
 
 header nav menu {
     list-style-type: none;
+      display: flex;
+    flex-direction:  row;
+    align-items: center;
+    flex: 1;
 }
 
 nav menu li {
   float: left;
   margin-right: 0.5em;
+  display: flex;
+    flex-direction:  row;
+    align-items: center;
+    flex: 1;
 }
 
 nav menu li a {
-  padding: 0.25em 1em;
-  text-decoration: none; /* no underline */
-  background-color: rgb(66,74,83);
-  color: black;
+    font-size: 16pt;
+    padding: 0.25em 1em;
+    text-decoration: none; /* no underline */
+    background-color: rgb(101,113,126);
+    color: black;
 
 }
 
 nav menu li a:visited {
-    background-color: rgb(66,74,83);
+    background-color: rgb(101,113,126);
     color: black;
 }
 
 nav menu li a:hover, nav menu li a:focus {
   color: black;
-  background-color: white;
+    background-color: rgb(157,172,189);
   font-weight: bold;
 }
+
+header h1 {
+    padding-left: .5em
+}
+
+header span {
+    padding: 1.5em;
+    font-size: 14pt;
+    display: flex;
+    justify-content: right;
+    
+}
+
