@@ -81,6 +81,15 @@ header span {
     
 }
 
+@media (max-width: 460px) {
+  header h1, header span {
+    display: none;
+  }
+  nav menu li a {
+    font-size: 13pt;
+  }
+}
+
 main {
   flex: 1;
   display: flex;
