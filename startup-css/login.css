@@ -96,5 +96,7 @@ footer {
   justify-content: center;
   align-items: center;
   background-color: rgb(101,113,126);
-
+}
+footer * {
+padding: 5px;
 }

@@ -17,7 +17,7 @@
   }
 
   body img {
-    height: 30vh;
+    height: 24vh;
   }
   
   header {
@@ -95,7 +95,7 @@
 #firstRowItems {
   display: flex;
   width: 95vw;
-  justify-content: space-between
+  justify-content: space-around
 }
 
   #stakeForm {
@@ -126,10 +126,13 @@
   align-items:center
 }
   footer {
-    height: 35px;
+    height: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     background-color: rgb(101,113,126);
   }
+footer * {
+  padding: 5px;
+}
