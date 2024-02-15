@@ -107,6 +107,7 @@
     justify-content: center;
     display: inline;
     align-items: center;
+    margin: 20px;
   }
 
   #stakeForm label, stakeForm input {
@@ -118,13 +119,17 @@
     margin-right: auto;
     margin-top: 10px;
   }
-
+#deckAndInteraction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center
+}
   footer {
-    height: 30px;
+    height: 35px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     background-color: rgb(101,113,126);
-  
   }
