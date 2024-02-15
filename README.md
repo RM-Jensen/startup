@@ -51,4 +51,18 @@ For this deliverable I built out the structure of my application using HTML.
 - **Images** - Cardback images for the deck and house's cards are implemented. Same image is used as a placeholder for the player's cards, too - will be replaced once the application supports giving them actual cards.
 - **DB/Login** - Username and Password boxes with submit button for login. Scores shows different users' balances from the database.
 - **WebSocket** - Users are notified in real time on play and scores pages when another user wins or loses a game. 
-- **Third Party Calls** - Balance sheet will use a third-party service to get conversion rate when showing values in Euros. 
+- **Third Party Calls** - Balance sheet will use a third-party service to get conversion rate when showing values in Euros.
+
+## CSS Deliverable
+For this deliverable I gave the website style using CSS
+
+- Header, footer, and main content body
+- **Navigation elements** - Links are now in header, with their background highlighting to show hover and style consistent with the look of the application
+- **Responsive to window resizing** - My app looks tolerable on all window sizes and devices - elements are spaced using flexboxes, and the navigation bar shrinks font and removes uneccessary elements if the screen is too small to show all three links.
+- **Application elements** - Used contrast and whitespace (well, ok, greyspace - you get the idea).
+- **Application text content** - Font is explicitly set on all pages, and is sized appropriately for different usages (I like serifs don't @ me)
+- **Application images** - Images are scaled so that they will appropriately almost-fill the screen on the image heavy page, and are positioned appropriately to see the deck at the top, then the house's cards, with the players cards at the bottom. The card back images are still mocks; actual cards will be used for the players hand once the javascript is complete. 
+
+
+
+
