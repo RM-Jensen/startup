@@ -88,7 +88,27 @@
     align-items: center;
     justify-content: center;
   }
-  
+
+  #peerNotifications {
+    flex: 1;
+  }
+
+  #balanceTable {
+    flex: 4;
+  }
+  #balanceTable table {
+    width: 60vw;
+  }
+
+  #balanceTable table tr td {
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  #balanceTable table tr {
+    width: 400px;
+  }
+
   footer {
     height: 30px;
     display: flex;
