@@ -92,6 +92,11 @@
     align-items: center;
     justify-content: center;
   }
+#firstRowItems {
+  display: flex;
+  width: 95vw;
+  justify-content: space-between
+}
 
   #stakeForm {
     background-color: whitesmoke;
