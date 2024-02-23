@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="login.css" />
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <!-- Tell browsers not to scale the viewport automatically -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>21 to go HTML</title>
+        <script src="login.js"></script>
+        <link rel="stylesheet" type="text/css" href="login.css" />
+
+
      <!--   <link rel="icon" href="favicon.ico" /> -->
       </head>
     <body>
@@ -37,7 +40,7 @@
               <label for="password">Password</label>
               <input type="text" id="password" placeholder="Your Password" />
               </span>
-              <button type="submit">Login</button>
+              <button type="submit"  onclick="login()">Login</button>
             </form>
             <p>Or sign up:</p>
             <form method="get" action="play.html">
@@ -45,7 +48,7 @@
               <input type="text" id="newUsername" placeholder="Your name here" />
               <label for="newPassword">Password</label>
               <input type="text" id="newPassword" placeholder="Your Password" />
-              <button type="submit">Sign Up</button>
+              <button type="submit"  onclick="signUp()">Sign Up</button>
             </form>
           </main>
         <footer>
