@@ -31,13 +31,8 @@ function loadScores() {
       tableBodyEl.innerHTML = '<tr><td colSpan=4>Be the first to score</td></tr>';
     }
   }
-  exampleScoresJson = '{ \
-    "id" : 901, \
-    "name" : { "first":"John", "middle":"K", "last":"Doe" }, \
-    "phones" : [ {"type" : "home", "number" : "555‑3762" }, \
-                 {"type" : "work", "number" : "555‑7242" }], \
-    "lazy" : false, \
-    "married" : null \
-    } '
+  exampleScoresJson = '[{"Rank" : 1, "Player" : "John", "Balance" : 241},\
+                        {"Rank" : 2, "Player" : "Dylan", "Balance" : 119},\
+                        {"Rank" : 3, "Player" : "Steve", "Balance" : 6}]'
   localStorage.setItem("scores", 'exampleScoresJson');
   loadScores();
