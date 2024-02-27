@@ -109,12 +109,12 @@
     width: 60vw;
   }
 
-  #balanceTable table tr td {
+  #balanceTableItems table tr td {
     border: 1px solid black;
     text-align: center;
   }
 
-  #balanceTable table tr {
+  #balanceTableItems table tr {
     width: 400px;
   }
 

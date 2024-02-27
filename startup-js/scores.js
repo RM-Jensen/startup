@@ -19,15 +19,15 @@ function loadScores() {
         const dateTdEl = document.createElement('td');
   
         positionTdEl.textContent = i + 1;
-        nameTdEl.textContent = score.name;
-        scoreTdEl.textContent = score.score;
-        dateTdEl.textContent = score.date;
+        nameTdEl.textContent = score.Player;
+        scoreTdEl.textContent = score.Balance;
+    //    dateTdEl.textContent = score.date;
   
         const rowEl = document.createElement('tr');
         rowEl.appendChild(positionTdEl);
         rowEl.appendChild(nameTdEl);
         rowEl.appendChild(scoreTdEl);
-        rowEl.appendChild(dateTdEl);
+    //    rowEl.appendChild(dateTdEl);
   
         tableBodyEl.appendChild(rowEl);
       }
