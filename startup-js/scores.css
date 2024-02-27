@@ -102,10 +102,10 @@
     flex: 1;
   }
 
-  #balanceTable {
+  #balanceTableItems {
     flex: 4;
   }
-  #balanceTable table {
+  #balanceTable {
     width: 60vw;
   }
 
