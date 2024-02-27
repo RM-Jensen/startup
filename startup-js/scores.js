@@ -1,3 +1,7 @@
+var exampleScoresJson =     '[{"Rank" : 1, "Player" : "John", "Balance" : 241},\
+                        {"Rank" : 2, "Player" : "Dylan", "Balance" : 119},\
+                        {"Rank" : 3, "Player" : "Steve", "Balance" : 6}]'
+
 function loadScores() {
     let scores = [];
     const scoresText = localStorage.getItem('scores');
@@ -31,8 +35,6 @@ function loadScores() {
       tableBodyEl.innerHTML = '<tr><td colSpan=4>Be the first to score</td></tr>';
     }
   }
-  exampleScoresJson = '[{"Rank" : 1, "Player" : "John", "Balance" : 241},\
-                        {"Rank" : 2, "Player" : "Dylan", "Balance" : 119},\
-                        {"Rank" : 3, "Player" : "Steve", "Balance" : 6}]'
-  localStorage.setItem("scores", 'exampleScoresJson');
+
+  localStorage.setItem("scores", exampleScoresJson);
   loadScores();
