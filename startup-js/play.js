@@ -8,13 +8,16 @@ class Game {
       this.dealt = [];
       this.house = [];
       this.hand = [];
-      this.house.push(this.deal());
-      this.house.push(this.deal());
-      this.hit();
-      this.hit();
-      if (this.checkScore(this.hand) === 21 || this.checkScore(this.house) == 21) {
-        this.findWinner();
-      }
+    }
+
+    startGame() {
+        this.house.push(this.deal());
+        this.house.push(this.deal());
+        this.hit();
+        this.hit();
+        if (this.checkScore(this.house) == 21) {
+          this.findWinner();
+        }
     }
 
     //return a card and add it to 'dealt' - won't be returned again
@@ -31,8 +34,11 @@ class Game {
     }
     //cards are numbered 0-51, with suits being blocks of 13: spades, hearts, diamonds, clubs
 
-    
-    showHit() {
+    getCardImg(card) {
+        
+    }
+
+    showHit(dealt) {
         //todo: html and css for player getting a card
     }
 
@@ -127,7 +133,6 @@ class Game {
         this.findWinner();
     }
 
-
-
-
 }
+
+const game = new Game;
