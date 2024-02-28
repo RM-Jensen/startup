@@ -12,6 +12,9 @@ class Game {
       this.house.push(this.deal());
       this.hit();
       this.hit();
+      if (this.checkScore(this.hand) === 21 || this.checkScore(this.house) == 21) {
+        this.findWinner();
+      }
     }
 
     //return a card and add it to 'dealt' - won't be returned again
@@ -28,24 +31,17 @@ class Game {
     }
     //cards are numbered 0-51, with suits being blocks of 13: spades, hearts, diamonds, clubs
 
-    hit() {
-        dealt = this.deal();//give the player a card
-        this.hand.push(dealt);
-        showHit(dealt);
-        if (this.checkScore(this.hand) > 21) {
-            this.declareWinner(false, ' Busted');
-            return;
-        }
-        if (this.checkScore(this.hand) === 21) {
-            this.declareWinner(true, ' Blackjack!')
-        }
-    }
-
+    
     showHit() {
         //todo: html and css for player getting a card
     }
 
+    declareWinner(playerWon, message, tieGame = false) {
+        //todo: html and css to show the game result
+        //todo: end game and cleanup for next round
 
+        console.log(playerWon);
+    }
 
     checkScore(cards) {
         //for use with reduce, assumes suit has already been removed
@@ -70,15 +66,22 @@ class Game {
         return score;
     }
 
-    stand() {
-        showStand();
-        while (this.checkScore(this.house) < 17) {
-            card = this.deal();
-            this.house.push(card);
-            this.showDealerHit(card);
-        }        
-        this.findWinner();
+    hit() {
+        var dealt = this.deal();//give the player a card
+        this.hand.push(dealt);
+        this.showHit(dealt);
+        if (this.checkScore(this.hand) > 21) {
+            this.declareWinner(false, ' Busted');
+            return;
+        }
+        if (this.checkScore(this.hand) === 21) {
+            this.declareWinner(true, ' Blackjack!')
+        }
     }
+
+
+
+
 
     showStand() {
         //todo: html and css for the player standing - reveal dealer cards
@@ -105,17 +108,26 @@ class Game {
             return;
         }
         if (playerScore < houseScore) {
-            this.declareWinner(False, ' lost!')
+            this.declareWinner(false, ' lost!')
             return;
         }
         if (playerScore === houseScore) {
-            this.declareWinner(False, null, True);
+            this.declareWinner(false, null, True);
         }
 
     }
 
-    declareWinner(playerWon, message, tieGame = False) {
-        //todo: html and css to show the game result
-        //todo: end game and cleanup for next round
+    stand() {
+        this.showStand();
+        while (this.checkScore(this.house) < 17) {
+            const card = this.deal();
+            this.house.push(card);
+            this.showDealerHit(card);
+        }        
+        this.findWinner();
     }
+
+
+
+
 }
