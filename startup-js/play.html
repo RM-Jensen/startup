@@ -32,10 +32,6 @@
             when people change balance. looks like a mess without CSS -->
             <!-- add background here when doing CSS, right now it would make no sense-->
             <span id="peerNotifications">
-                <p> Lee just won $150!</p>
-                <p> Lee just won $300!</p>
-                <p> Kai just won $25!</p>
-                <p> Lee just lost $600!</p>
             </span>
             <div id="deckAndInteraction">
                 <p>click deck to hit</p>
@@ -46,18 +42,18 @@
             <form id="stakeForm" action="formSubmit.html" method="post">
                 <label for="stake">Stake ($): </label>
                 <input type="number" name="stake" id="stake" min="1" max="10" step="1" />
-                <button type="submit">Deal</button>
+                <button onclick="game.startGame()">Deal</button>
             </form>
 
             </div>
             <ol id="houseCards">
-                <img id="houseCard1" alt="houseCard1" src="card_back.png"/>
-                <img id="houseCard2" alt="houseCard2" src="card_back.png"/>
+             <!--   <img id="houseCard1" alt="houseCard1" src="card_back.png"/>
+                <img id="houseCard2" alt="houseCard2" src="card_back.png"/>-->
             </ol>
 
             <ol id="playerCards">
-                <img id="playerCard1" alt="playerCard1" src="card_back.png"/>
-                <img id="playerCard2" alt="playerCard2" src="card_back.png"/>
+               <!-- <img id="playerCard1" alt="playerCard1" src="card_back.png"/>
+                <img id="playerCard2" alt="playerCard2" src="card_back.png"/>-->
             </ol>
 
         </main>
