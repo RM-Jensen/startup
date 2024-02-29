@@ -13,6 +13,8 @@ class Game {
     startGame() {
         this.house.push(this.deal());
         this.house.push(this.deal());
+        this.showHouseCards();
+        document.querySelector('#gameInfo').innerHTML = '<p>Good luck!</p>';
         this.hit();
         this.hit();
         if (this.checkScore(this.house) == 21) {
@@ -77,6 +79,12 @@ class Game {
 
     showHit(dealt) {
         //todo: html and css for player getting a card
+    }
+ 
+    showHouseCards() {
+        const houseCards = document.querySelector('#houseCards');
+        houseCards.innerHTML = '<img id="houseCard1" alt="houseCard1" src="card_back.png"/>' +
+                                '<img id="houseCard2" alt="houseCard2" src="card_back.png"/>'
     }
 
     declareWinner(playerWon, message, tieGame = false) {
