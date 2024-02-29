@@ -135,9 +135,14 @@ class Game {
         if (this.checkScore(this.hand) === 21) {
             this.declareWinner(true, ' Blackjack!')
         }
-    }
+    } 
 
     showStand() {
+        const houseCards = document.querySelector('#houseCards');
+        var house1 = this.getCardImg(this.house[0]);
+        var house2 = this.getCardImg(this.house[1]);
+        houseCards.innerHTML = `<img id="houseCard1" alt="houseCard1" src="${house1}"/> 
+                                <img id="houseCard2" alt="houseCard2" src="${house2}"/>`
         //todo: html and css for the player standing - reveal dealer cards
     }
 
