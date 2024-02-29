@@ -1,3 +1,5 @@
+document.getElementById("nameDisplay").innerHTML = `${localStorage.getItem('userName')}`;
+
 var exampleScoresJson =     '[{"Rank" : 1, "Player" : "John", "Balance" : 241},\
                         {"Rank" : 2, "Player" : "Dylan", "Balance" : 119},\
                         {"Rank" : 3, "Player" : "Steve", "Balance" : 6}]'
