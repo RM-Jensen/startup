@@ -39,7 +39,7 @@
                 <button> stand </button>
                 </div>
                 
-            <form id="stakeForm" action="formSubmit.html" method="post">
+            <form id="stakeForm" method="post" onsubmit="return false;">
                 <label for="stake">Stake ($): </label>
                 <input type="number" name="stake" id="stake" min="1" max="10" step="1" />
                 <button onclick="game.startGame()">Deal</button>
