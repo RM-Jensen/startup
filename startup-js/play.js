@@ -35,7 +35,44 @@ class Game {
     //cards are numbered 0-51, with suits being blocks of 13: spades, hearts, diamonds, clubs
 
     getCardImg(card) {
-        
+        var suit = Math.floor(card/13);
+        switch (suit) {
+            case 0:
+                suit = 'S';
+                break;
+            case 1: 
+                suit = 'H';
+                break;
+            case 2: 
+                suit = 'D';
+                break;
+            case 3: 
+                suit = 'C';
+                break;
+        }
+
+        var value = card % 13;
+        value += 1; //move index to 1-13
+        var valueAbreviation;
+        switch (value) {
+            case 1:
+                valueAbreviation = 'A';
+                break;
+            case 11:
+                valueAbreviation = 'J';
+                break;
+            case 12:
+                valueAbreviation = 'Q';
+                break;
+            case 13:
+                valueAbreviation = 'K';
+                break;
+            default:
+                valueAbreviation = value.toString();
+        }
+
+        var fileName = "./PNG/" + valueAbreviation + suit + ".png";
+        return fileName;
     }
 
     showHit(dealt) {
@@ -44,8 +81,10 @@ class Game {
 
     declareWinner(playerWon, message, tieGame = false) {
         //todo: html and css to show the game result
-        //todo: end game and cleanup for next round
-
+        //todo: record game result in memory
+        this.dealt = [];
+        this.house = [];
+        this.hand = [];
         console.log(playerWon);
     }
 
@@ -85,10 +124,6 @@ class Game {
         }
     }
 
-
-
-
-
     showStand() {
         //todo: html and css for the player standing - reveal dealer cards
     }
@@ -119,8 +154,8 @@ class Game {
         }
         if (playerScore === houseScore) {
             this.declareWinner(false, null, True);
+            return;
         }
-
     }
 
     stand() {
