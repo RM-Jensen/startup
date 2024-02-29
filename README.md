@@ -61,7 +61,16 @@ For this deliverable I gave the website style using CSS
 - **Responsive to window resizing** - My app looks tolerable on all window sizes and devices - elements are spaced using flexboxes, and the navigation bar shrinks font and removes uneccessary elements if the screen is too small to show all three links.
 - **Application elements** - Used contrast and whitespace (well, ok, greyspace - you get the idea).
 - **Application text content** - Font is explicitly set on all pages, and is sized appropriately for different usages (I like serifs don't @ me)
-- **Application images** - Images are scaled so that they will appropriately almost-fill the screen on the image heavy page, and are positioned appropriately to see the deck at the top, then the house's cards, with the players cards at the bottom. The card back images are still mocks; actual cards will be used for the players hand once the javascript is complete. 
+- **Application images** - Images are scaled so that they will appropriately almost-fill the screen on the image heavy page, and are positioned appropriately to see the deck at the top, then the house's cards, with the players cards at the bottom. The card back images are still mocks; actual cards will be used for the players hand once the javascript is complete.
+
+## JavaScript deliverable
+
+For this deliverable I implemented my JavaScript so that the application works for a single user. I also added placeholders for future technology.
+
+- **login** - Using the login or sign up buttons will take you to the play page and save your username and password (in the future, will actually login). Username is displayed on the topbar of the site. 
+- **database** - Balance page uses a json string to mock data requested from database, dynamically putting it in the table. 
+- **WebSocket** - I used the setInterval function to periodically mock another user winning or losing a game on the balance page. This will be replaced with WebSocket messages later.
+- **application logic** - the game of 21 is fully playable and shows the game state through images and text. It follows a simplified version of casino rules.  
 
 
 
