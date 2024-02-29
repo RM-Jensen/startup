@@ -1,25 +1,41 @@
-function startGame() {
-    //todo: lock stake, hide 'deal' button, create game, pass to the other two buttons
-}
 
+
+document.getElementById("nameDisplay").innerHTML = `${localStorage.getItem('userName')}`;
 
 class Game {
     constructor(description, el) {
       this.dealt = [];
       this.house = [];
       this.hand = [];
+      this.playerTurn = false;
     }
 
     startGame() {
+        if (this.playerTurn) {
+            return;
+        }
+        if (!document.getElementById("stake").value) {
+            return;
+        }
+        //clean up images from last game, if present
+        const houseCards = document.querySelector('#houseCards');
+        houseCards.innerHTML = ''; //remove house card images
+        const playerCards = document.querySelector('#playerCards');
+        playerCards.innerHTML = '';  //remove player card images
+
+        document.getElementById('stake').readOnly = true;
         this.house.push(this.deal());
         this.house.push(this.deal());
         this.showHouseCards();
         document.querySelector('#gameInfo').innerHTML = '<p>Good luck!</p>';
+        this.playerTurn = true;
         this.hit();
         this.hit();
+        this.playerTurn = false;
         if (this.checkScore(this.house) == 21) {
           this.findWinner();
         }
+        this.playerTurn = true;
     }
 
     //return a card and add it to 'dealt' - won't be returned again
@@ -89,9 +105,37 @@ class Game {
                                 '<img id="houseCard2" alt="houseCard2" src="card_back.png"/>'
     }
 
-    declareWinner(playerWon, message, tieGame = false) {
-        //todo: html and css to show the game result
-        //todo: record game result in memory
+    declareWinner(playerWon, playerActiveParty, message, tieGame = false) {
+        this.hand = [];
+        this.house = [];
+        this.dealt = [];
+
+        //announce result
+        if (playerActiveParty) {
+            var activeParty = localStorage.getItem('userName');
+        }
+        else {
+            var activeParty = 'House';
+        }
+
+
+
+        document.querySelector('#gameInfo').innerHTML =  `<p>${activeParty}${message}</p><p>Use the deal button to play again!</p>`;
+
+        document.getElementById('stake').readOnly = false;
+        const stake = document.getElementById("stake").value;
+        var payout;
+        if (tieGame) {
+            payout = 0;
+        }
+        else if (playerWon) {
+            payout = stake;
+        }
+        else {
+            payout = -1 * stake;
+        }
+        localStorage.setItem("lastGameResult", payout); //mock of updating balance in database
+
         this.dealt = [];
         this.house = [];
         this.hand = [];
@@ -122,18 +166,18 @@ class Game {
     }
 
     hit() {
-        if (!this.hand) {
+        if (!this.playerTurn) {
             return;
         }
         var dealt = this.deal();//give the player a card
         this.hand.push(dealt);
         this.showHit(dealt);
         if (this.checkScore(this.hand) > 21) {
-            this.declareWinner(false, ' Busted');
+            this.declareWinner(false, true, ' Busted');
             return;
         }
         if (this.checkScore(this.hand) === 21) {
-            this.declareWinner(true, ' Blackjack!')
+            this.declareWinner(true, true, ' Blackjack!')
         }
     } 
 
@@ -147,7 +191,9 @@ class Game {
     }
 
     showDealerHit(dealt) {
-        //todo: html and css for player getting a card
+        const houseCards = document.querySelector('#houseCards');
+        var cardImage = this.getCardImg(dealt);
+        houseCards.innerHTML = houseCards.innerHTML + `<img src="${cardImage}"/>`;    
     }
 
     findWinner() {
@@ -158,37 +204,48 @@ class Game {
             return;
         }
         if (houseScore > 21) {
-            this.declareWinner(True, ' survived! (house busted)')
+            this.declareWinner(true, false, ' Busted!')
             return;
         }
         var playerScore = this.checkScore(this.hand);
         if (playerScore > houseScore) {
-            this.declareWinner(True, ' won!')
+            this.declareWinner(true, true, ' won!')
             return;
         }
         if (playerScore < houseScore) {
-            this.declareWinner(false, ' lost!')
+            this.declareWinner(false, true, ' lost!')
             return;
         }
         if (playerScore === houseScore) {
-            this.declareWinner(false, null, True);
+            this.declareWinner(false, false, null, true);
             return;
         }
     }
 
+      
     stand() {
-        if (!this.hand) {
+        if (!this.playerTurn) {
             return;
         }
+        this.playerTurn = false;
         this.showStand();
-        while (this.checkScore(this.house) < 17) {
+        sleep(1000).then(() => {this.dealerDraws()});    
+    }
+
+    dealerDraws() {
+        if (this.checkScore(this.house) < 17) {
             const card = this.deal();
             this.house.push(card);
             this.showDealerHit(card);
-        }        
-        this.findWinner();
+            sleep(1000).then(() => {this.dealerDraws()});
+        }
+        else {
+            this.findWinner();
+        }
     }
-
 }
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 const game = new Game;
