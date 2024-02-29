@@ -78,7 +78,9 @@ class Game {
     }
 
     showHit(dealt) {
-        //todo: html and css for player getting a card
+        const playerCards = document.querySelector('#playerCards');
+        var cardImage = this.getCardImg(dealt);
+        playerCards.innerHTML = playerCards.innerHTML + `<img src="${cardImage}"/>`;
     }
  
     showHouseCards() {
@@ -120,6 +122,9 @@ class Game {
     }
 
     hit() {
+        if (!this.hand) {
+            return;
+        }
         var dealt = this.deal();//give the player a card
         this.hand.push(dealt);
         this.showHit(dealt);
@@ -167,6 +172,9 @@ class Game {
     }
 
     stand() {
+        if (!this.hand) {
+            return;
+        }
         this.showStand();
         while (this.checkScore(this.house) < 17) {
             const card = this.deal();
