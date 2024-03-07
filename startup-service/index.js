@@ -28,6 +28,7 @@ apiRouter.post('/score', (req, res) => {
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
+    console.log(`line 31`);
     res.sendFile('index.html', { root: 'public' });
   });
   
