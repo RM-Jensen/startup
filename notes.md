@@ -27,6 +27,17 @@ I resolved to not get suicidal this period and have already failed. It is 3:08 a
 \
 ssh command (from git bash):  ssh -i "C:\Users\ryanj\Documents\Classwork\CS 260\ServerKey.pem" ubuntu@34.233.153.235\
 
+## What's the deal with servers and services?
+In this class, a server is interchangable with a service.\
+An endpoint is to a service as a method is to a class. \
+
+### Endpoint Design Philosophies
+Remote Procedure Call (RPC) - only use 'post', pass a command and arguments\
+REST (REpresentational State Transfer) - lean on the http verbs and paths being informative/useful. Technically there's a much more involved form of rest, but few people do it because it's much more involved.\
+Graph QL (Query Language) - treat the website as a relational database
+
+## Security is hard
+
 
 
 ## Technology, cont. : Caddy, HTTPS, TLS
