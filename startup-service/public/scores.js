@@ -4,43 +4,46 @@ var exampleScoresJson =     '[{"Rank" : 1, "Player" : "John", "Balance" : 241},\
                         {"Rank" : 2, "Player" : "Dylan", "Balance" : 119},\
                         {"Rank" : 3, "Player" : "Steve", "Balance" : 6}]'
 
-function loadScores() {
-    let scores = [];
-    const scoresText = localStorage.getItem('scores');
-    if (scoresText) {
-      scores = JSON.parse(scoresText);
+                        let scores = [];
+
+
+
+async function loadScores() {
+  // Get the latest high scores from the service
+  const response = await fetch('/api/scores');
+  scores = await response.json();
+  // Save the scores in case we go offline in the future
+  localStorage.setItem('scores', JSON.stringify(scores));    
+
+  const tableBodyEl = document.querySelector('#balanceTable');
+
+  if (scores.length) {
+    for (const [i, score] of scores.entries()) {
+      const positionTdEl = document.createElement('td');
+      const nameTdEl = document.createElement('td');
+      const scoreTdEl = document.createElement('td');
+      const dateTdEl = document.createElement('td');
+
+      positionTdEl.textContent = i + 1;
+      nameTdEl.textContent = score.Player;
+      scoreTdEl.textContent = score.Balance;
+  //    dateTdEl.textContent = score.date;
+
+      const rowEl = document.createElement('tr');
+      rowEl.appendChild(positionTdEl);
+      rowEl.appendChild(nameTdEl);
+      rowEl.appendChild(scoreTdEl);
+  //    rowEl.appendChild(dateTdEl);
+
+      tableBodyEl.appendChild(rowEl);
     }
-  
-    const tableBodyEl = document.querySelector('#balanceTable');
-  
-    if (scores.length) {
-      for (const [i, score] of scores.entries()) {
-        const positionTdEl = document.createElement('td');
-        const nameTdEl = document.createElement('td');
-        const scoreTdEl = document.createElement('td');
-        const dateTdEl = document.createElement('td');
-  
-        positionTdEl.textContent = i + 1;
-        nameTdEl.textContent = score.Player;
-        scoreTdEl.textContent = score.Balance;
-    //    dateTdEl.textContent = score.date;
-  
-        const rowEl = document.createElement('tr');
-        rowEl.appendChild(positionTdEl);
-        rowEl.appendChild(nameTdEl);
-        rowEl.appendChild(scoreTdEl);
-    //    rowEl.appendChild(dateTdEl);
-  
-        tableBodyEl.appendChild(rowEl);
-      }
-    } else {
-      tableBodyEl.innerHTML = '<tr><td colSpan=4>Be the first to score</td></tr>';
-    }
+  } else {
+    tableBodyEl.innerHTML = '<tr><td colSpan=4>Be the first to score</td></tr>';
   }
+}
 
 
   // mocking things
-  localStorage.setItem("scores", exampleScoresJson);
   loadScores();
 
   setInterval(() => {

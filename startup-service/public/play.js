@@ -15,6 +15,12 @@ class Game {
             return;
         }
         if (!document.getElementById("stake").value) {
+            document.querySelector('#gameInfo').innerHTML = '<p>Set a stake to start!</p>';
+            return;
+        }
+        //todo: don't let them stake more than their balance, load balances as soon as page is opened
+        if (this.getPlayerName == null) {
+            document.querySelector('#gameInfo').innerHTML = '<p>Log in to play!</p>';
             return;
         }
         //clean up images from last game, if present
@@ -118,8 +124,6 @@ class Game {
             var activeParty = 'House';
         }
 
-
-
         document.querySelector('#gameInfo').innerHTML =  `<p>${activeParty}${message}</p><p>Use the deal button to play again!</p>`;
 
         document.getElementById('stake').readOnly = false;
@@ -134,7 +138,8 @@ class Game {
         else {
             payout = -1 * stake;
         }
-        localStorage.setItem("lastGameResult", payout); //mock of updating balance in database
+
+        this.updateBalance(payout);
 
         this.dealt = [];
         this.house = [];
@@ -243,9 +248,51 @@ class Game {
             this.findWinner();
         }
     }
+
+    getPlayerName() {
+        return localStorage.getItem('userName');
+    }
+
+    async updateBalance(score) {
+        const userName = this.getPlayerName();
+        const payout = {name: userName, Margin: score};
+    
+        try {
+          const response = await fetch('/api/score', {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(payout),
+          });
+    
+          // Store what the service gave us as the high scores
+          const scores = await response.json();
+          localStorage.setItem('scores', JSON.stringify(scores));
+        } catch {
+          // If there was an error then just track scores locally... if I get around to it
+          this.updateScoresLocal(newScore);
+        }
+      }
 }
+
+const game = new Game;
+
+let scores = [];
+
+// Get the latest high scores from the service
+const response = await fetch('/api/scores');
+scores = await response.json();
+var playerScore = 0;
+for (balance in scores) {
+    if (balance.name === game.getPlayerName) {
+        playerScore = balance.Balance;
+    }
+}
+
+// Save the player score to check that bet is legal
+localStorage.setItem(game.getPlayerName, response.);
+
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-const game = new Game;
+
