@@ -48,16 +48,14 @@ function updateScores(payout, scores) {
       found = true;
     }
   }
-  if (!found) {
-    
+  if (!found && payout > 0) {
+    scores.entries.push({Balance: payout.payout, userName: payout.userName});
   }
 
-  if (!found) {
-    scores.push(newScore);
-  }
+  scores.entries.sort((a, b) => a.Balance - b.Balance);
 
-  if (scores.length > 10) {
-    scores.length = 10;
+  for (var [i, score] of scores.entries) {
+    score.Rank = i;
   }
 
   return scores;
