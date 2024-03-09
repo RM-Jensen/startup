@@ -255,7 +255,7 @@ class Game {
 
     async updateBalance(score) {
         const userName = this.getPlayerName();
-        const payout = {name: userName, Margin: score};
+        const payout = {name: userName, payout: score};
     
         try {
           const response = await fetch('/api/score', {
@@ -289,7 +289,7 @@ for (balance in scores) {
 }
 
 // Save the player score to check that bet is legal
-localStorage.setItem(game.getPlayerName, response.);
+localStorage.setItem(game.getPlayerName, playerScore);
 
 
 function sleep(ms) {

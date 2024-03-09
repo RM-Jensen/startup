@@ -40,14 +40,16 @@ app.use((_req, res) => {
   // updateScores considers a new score for inclusion in the high scores.
 // The high scores are saved in memory and disappear whenever the service is restarted.
 let scores = [];
-function updateScores(newScore, scores) {
-  let found = false;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
+function updateScores(payout, scores) {
+    var found = false;
+  for (score of scores.entries()) {
+    if (payout.userName === score.userName) {
+      score.Balance += payout.payout;
       found = true;
-      break;
     }
+  }
+  if (!found) {
+    
   }
 
   if (!found) {
