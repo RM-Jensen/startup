@@ -291,9 +291,9 @@ async function getScores() {
     const response = await fetch('/api/scores');
     scores = await response.json();
     var playerScore = null;
-    for (balance in scores) {
-        if (balance.name === game.getPlayerName) {
-            playerScore = balance.Balance;
+    for (var i = 0; i < scores.length; i++) {
+        if (scores[i].userName === game.getPlayerName()) {
+            playerScore = scores[i].Balance;
         }
     }
 
@@ -319,7 +319,8 @@ async function getScores() {
     }
 
     // Save the player score to check that bet is legal
-    localStorage.setItem(game.getPlayerName, playerScore);
+    localStorage.setItem(game.getPlayerName(), playerScore);
+    localStorage.setItem('scores', JSON.stringify(scores));
 }
 
 function sleep(ms) {
