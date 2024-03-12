@@ -41,20 +41,21 @@ app.use((_req, res) => {
 let scores = [];
 function updateScores(payout, scores) {
     var found = false;
-  for (score of scores.entries()) {
+  for (score of scores) {
     if (payout.userName === score.userName) {
       score.Balance += payout.payout;
       found = true;
     }
   }
-  if (!found && payout > 0) {
-    scores.entries.push({Balance: payout.payout, userName: payout.userName});
+  if (!found && payout.payout > 0) {
+    scores.push({Balance: payout.payout, userName: payout.userName});
   }
 
-  scores.entries.sort((a, b) => a.Balance - b.Balance);
+  scores.sort((a, b) => a.Balance - b.Balance);
 
-  for (var [i, score] of scores.entries) {
-    score.Rank = i;
+  //TODO: THIS FOR LOOP IS TO SMART, MAKE IT STUPID
+  for (var i = 1; i <= scores.length; i++) {
+    scores[i-1].Rank = i;
   }
 
   return scores;

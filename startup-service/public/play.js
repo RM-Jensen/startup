@@ -299,7 +299,7 @@ async function getScores() {
 
     if (playerScore === null) {
         const userName = game.getPlayerName();
-        const payout = {name: userName, payout: 1};
+        const payout = {userName: userName, payout: 1};
     
         try {
           const response = await fetch('/api/score', {
