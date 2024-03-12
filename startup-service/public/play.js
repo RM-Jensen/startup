@@ -23,6 +23,11 @@ class Game {
             document.querySelector('#gameInfo').innerHTML = '<p>Log in to play!</p>';
             return;
         }
+        if (localStorage.getItem(this.getPlayerName() < document.getElementById("stake").value
+                && document.getElementById("stake").value > 1)) {
+            document.querySelector('#gameInfo').innerHTML = '<p>You must set the stake to less than your balance (or 1)!</p>';
+            return;
+        }
         //clean up images from last game, if present
         const houseCards = document.querySelector('#houseCards');
         houseCards.innerHTML = ''; //remove house card images
