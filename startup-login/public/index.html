@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- Tell browsers not to scale the viewport automatically -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>21 to go HTML</title>
+        <script src="login.js"></script>
+        <link rel="stylesheet" type="text/css" href="login.css" />
+
+
+     <!--   <link rel="icon" href="favicon.ico" /> -->
+      </head>
+    <body>
+        <!-- header contains the name of the app (which is being added and wasn't in 
+            original drawings), links to the four pages, and a box showing who you are logged 
+            in as.-->
+        <header>
+            <h1>21 To Go</h1>
+            <!-- Navigation elements -->
+            <nav>
+              <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+              <menu>
+                <li><a href="index.html">Login</a></li>
+                <li><a href="play.html">Play</a></li>
+                <li><a href="scores.html">Scores</a></li>
+              </menu>
+            </nav>
+            <span id="nameDisplay">Super cool user</span>
+        </header>
+        <main>
+            <h1>Welcome</h1>
+            <p>Login to play:</p>
+            <form method="get" action="play.html">
+              <span id="loginUsername">
+              <label for="username">Username</label>
+              <input type="text" id="username" placeholder="Your name here" />
+              </span>
+              <span id="loginPwd">
+              <label for="password">Password</label>
+              <input type="text" id="password" placeholder="Your Password" />
+              </span>
+              <button type="submit"  onclick="login()">Login</button>
+            </form>
+            <p>Or sign up:</p>
+            <form method="get" action="play.html">
+              <label for="newUsername">Username</label>
+              <input type="text" id="newUsername" placeholder="Your name here" />
+              <label for="newPassword">Password</label>
+              <input type="text" id="newPassword" placeholder="Your Password" />
+              <button type="submit"  onclick="register()">Sign Up</button>
+            </form>
+          </main>
+        <footer>
+        <span class="text-reset">Ryan Jensen</span>
+        <a href="https://github.com/RM-Jensen/startup">GitHub</a>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,147 @@
+* {
+    font-family: serif;
+    box-sizing: border-box;
+  
+  }
+  
+  html {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: lightgray;
+  }
+
+  body img {
+    height: 24vh;
+  }
+  
+  header {
+      margin: 0;
+      padding: 0;
+      background-color: rgb(101,113,126);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 45px;
+  }
+  
+  
+  
+  header h1, header span {
+      white-space: nowrap;
+  }
+  
+  header nav menu {
+      list-style-type: none;
+        display: flex;
+      flex-direction:  row;
+      align-items: center;
+      flex: 1;
+  }
+  
+  nav menu li {
+    float: left;
+    margin-right: 0.5em;
+    display: flex;
+      flex-direction:  row;
+      align-items: center;
+      flex: 1;
+  }
+  
+  nav menu li a {
+      font-size: 16pt;
+      padding: 0.25em 1em;
+      text-decoration: none; /* no underline */
+      background-color: rgb(101,113,126);
+      color: black;
+  
+  }
+  
+  nav menu li a:visited {
+      background-color: rgb(101,113,126);
+      color: black;
+  }
+  
+  nav menu li a:hover, nav menu li a:focus {
+    color: black;
+      background-color: rgb(157,172,189);
+    font-weight: bold;
+  }
+  
+  header h1 {
+      padding-left: .5em
+  }
+  
+  header span {
+      padding: 1.5em;
+      font-size: 14pt;
+      display: flex;
+      justify-content: right;
+      
+  }
+  
+  @media (max-width: 460px) {
+    header h1, header span {
+      display: none;
+    }
+    nav menu li a {
+      font-size: 13pt;
+    }
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+#firstRowItems {
+  display: flex;
+  width: 95vw;
+  justify-content: space-around
+}
+
+  #stakeForm {
+    background-color: whitesmoke;
+    border-radius: 3px;
+    padding: 5px;
+    width: 150px;
+    height: 65px;
+    justify-content: center;
+    display: inline;
+    align-items: center;
+    margin: 20px;
+  }
+
+  #stakeForm label, stakeForm input {
+    margin: 5px;
+  }
+  #stakeForm button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+  }
+#deckAndInteraction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center
+}
+  footer {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(101,113,126);
+  }
+footer * {
+  padding: 5px;
+}
