@@ -72,6 +72,14 @@ For this deliverable I implemented my JavaScript so that the application works f
 - **WebSocket** - I used the setInterval function to periodically mock another user winning or losing a game on the balance page. This will be replaced with WebSocket messages later.
 - **application logic** - the game of 21 is fully playable and shows the game state through images and text. It follows a simplified version of casino rules.  
 
+## Service Deliverable
+For this deliverable I added backend endpoints that receives votes and returns the voting totals, as well as a placeholder third-party endpoint.
+
+- **Node.js/Express HTTP service** - done!
+- **Static middleware for frontend** - done!
+- **Calls to third party endpoints** - I realized at the last moment that my plan might not technically meet the rules (the API I'm looking at has limited request frequency, so I would need to call that endpoint from the backend and cache it - but the requirements say that your _frontend_ must call to third party endpoints.) I have a simple call to the picture api to meet this requirement until I can talk to the professor about whether my plan needs to change, so this requirement is _done._
+- **Backend service endpoints** - Endpoints for retrieving balance sheet from server and reporting a game result (and score adjustment) to the server. 
+- **Frontend calls service endpoints** - I did this using the fetch function.
 
 
 
