@@ -1,3 +1,6 @@
+//TODO: NEED TO UPDATE SCORES CORRECTLY
+
+
 const { MongoClient } = require('mongodb');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
@@ -25,4 +28,31 @@ const scoreCollection = db.collection('score');
   function getUserByToken(token) {
     return userCollection.findOne({ token: token });
   }
+
+  async function createUser(email, password) {
+    // Hash the password before we insert it into the database
+    const passwordHash = await bcrypt.hash(password, 10);
+  
+    const user = {
+      userName: userName,
+      password: passwordHash,
+      token: uuid.v4(),
+    };
+    await userCollection.insertOne(user);
+  
+    return user;
+  }
+
+
+  function getHighScores() {
+    const query = { score: { $gt: 0 } };
+    const options = {
+      sort: { score: -1 },
+      limit: 50,
+    };
+    const cursor = scoreCollection.find(query, options);
+    return cursor.toArray();
+  }
+  
+  
   
