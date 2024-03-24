@@ -8,9 +8,9 @@ const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
-const db = client.db('simon');
+const db = client.db('startup');
 const userCollection = db.collection('user');
-const scoreCollection = db.collection('score');
+//const scoreCollection = db.collection('score');
 
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
@@ -44,15 +44,27 @@ const scoreCollection = db.collection('score');
   }
 
 
+  function adjustScore(score, userName) {
+    var record = userCollection.findOne({ userName: userName });
+    record.update({$inc:{"score":score}});
+
+  }
+
   function getHighScores() {
     const query = { score: { $gt: 0 } };
     const options = {
       sort: { score: -1 },
       limit: 50,
     };
-    const cursor = scoreCollection.find(query, options);
+    const cursor = userCollection.find(query, options);
     return cursor.toArray();
   }
   
-  
+  module.exports = {
+    getUser,
+    getUserByToken,
+    createUser,
+    adjustScore,
+    getHighScores,
+  };
   
