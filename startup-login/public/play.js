@@ -263,7 +263,6 @@ class Game {
         const userName = this.getPlayerName();
         const payout = {name: userName, payout: score};
     
-        try {
           const response = await fetch('/api/score', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
@@ -273,11 +272,7 @@ class Game {
           // Store what the service gave us as the high scores
           const scores = await response.json();
           localStorage.setItem('scores', JSON.stringify(scores));
-          localStorage.setItem(userName, playerScore);
-        } catch {
-          // If there was an error then just track scores locally... if I get around to it
-          this.updateScoresLocal(newScore);
-        }
+
       }
 }
 
