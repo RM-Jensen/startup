@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const DB = require('./database.js');
 
+const authCookieName = 'token';
 
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.
@@ -98,7 +99,7 @@ secureApiRouter.use(async (req, res, next) => {
 // SubmitScore
 secureApiRouter.post('/score', async (req, res) => {
   const score = { ...req.body, ip: req.ip };
-  await DB.addScore(score);
+  await DB.adjustScore(score);
   const scores = await DB.getHighScores();
   res.send(scores);
 });
