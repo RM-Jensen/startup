@@ -1,4 +1,3 @@
-document.getElementById("nameDisplay").innerHTML = `${localStorage.getItem('userName')}`;
 
 function login() {
   const nameEl = document.querySelector("#username");
