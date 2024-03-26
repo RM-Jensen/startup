@@ -301,7 +301,7 @@ async function getScores() {
         const userName = game.getPlayerName();
         const payout = {userName: userName, payout: 1};
     
-        try {
+        
           const response = await fetch('/api/score', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
@@ -312,10 +312,7 @@ async function getScores() {
           const scores = await response.json();
           localStorage.setItem('scores', JSON.stringify(scores));
           localStorage.setItem(userName, playerScore);
-        } catch {
-          // If there was an error then just track scores locally... if I get around to it
-          this.updateScoresLocal(newScore);
-        }
+        
     }
 
     // Save the player score to check that bet is legal

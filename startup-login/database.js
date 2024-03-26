@@ -45,8 +45,8 @@ const userCollection = db.collection('user');
 
 
   function adjustScore(score, userName) {
-    var record = userCollection.findOne({ userName: userName });
-    record.update({$inc:{"score":score}});
+  //  var record = userCollection.findOne({ userName: userName });
+    userCollection.updateOne({$inc:{"score":score}});
 
   }
 
