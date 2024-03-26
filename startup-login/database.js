@@ -53,11 +53,14 @@ const userCollection = db.collection('user');
       var prevScore = 0;
     }
     var newScore = prevScore + Number(score);
+    if (newScore < 1) {
+      newScore = 1;
+    }
     userCollection.updateOne({userName: userName}, {$set:{"score":newScore}});
   }
 
   function getHighScores() {
-    const query = { score: { $gt: 0 } };
+    const query = { score: { $gt: -1 } };
     const options = {
       sort: { score: -1 },
       limit: 50,

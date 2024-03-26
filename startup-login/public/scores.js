@@ -25,8 +25,8 @@ async function loadScores() {
       const dateTdEl = document.createElement('td');
 
       positionTdEl.textContent = i + 1;
-      nameTdEl.textContent = score.Player;
-      scoreTdEl.textContent = score.Balance;
+      nameTdEl.textContent = score.userName;
+      scoreTdEl.textContent = score.score;
   //    dateTdEl.textContent = score.date;
 
       const rowEl = document.createElement('tr');
