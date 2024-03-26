@@ -98,8 +98,8 @@ secureApiRouter.use(async (req, res, next) => {
 
 // SubmitScore
 secureApiRouter.post('/score', async (req, res) => {
-  const score = { ...req.body, ip: req.ip };
-  await DB.adjustScore(score);
+  const score = { ...req.body};
+  await DB.adjustScore(score.payout, score.userName);
   const scores = await DB.getHighScores();
   res.send(scores);
 });
