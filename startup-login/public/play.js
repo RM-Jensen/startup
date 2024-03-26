@@ -261,7 +261,7 @@ class Game {
 
     async updateBalance(score) {
         const userName = this.getPlayerName();
-        const payout = {name: userName, payout: score};
+        const payout = {userName: userName, payout: score};
     
           const response = await fetch('/api/score', {
             method: 'POST',
