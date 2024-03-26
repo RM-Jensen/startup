@@ -46,8 +46,7 @@ const userCollection = db.collection('user');
 
   function adjustScore(score, userName) {
   //  var record = userCollection.findOne({ userName: userName });
-    userCollection.updateOne({$inc:{"score":score}});
-
+    userCollection.updateOne({userName: userName}, {$inc:{"score":score}});
   }
 
   function getHighScores() {
