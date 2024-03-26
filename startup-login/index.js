@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 const DB = require('./database.js');
 
-const authCookieName = 'token';
 
 
 // The service port. In production the frontend code is statically hosted by the service on the same port.

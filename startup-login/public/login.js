@@ -1,24 +1,24 @@
 
 function login() {
-  const nameEl = document.querySelector("#username");
-  const pwdEl = document.querySelector("#password");
-  localStorage.setItem("userName", nameEl.value);
-  loginOrCreate(nameEl, pwdEl, `/api/auth/create`);
+  const userName = document.querySelector("#username").value;
+  const password = document.querySelector("#password").value;
+  localStorage.setItem("userName", userName);
+  loginOrCreate(userName, password, `/api/auth/create`);
   window.location.href = "play.html";
 }
 
 function register() {
-  const nameEl = document.querySelector("#newUsername");
-  const pwdEl = document.querySelector("#newPassword");
-  localStorage.setItem("userName", nameEl.value);
-  loginOrCreate(nameEl, pwdEl, `/api/auth/create`);
+  const userName = document.querySelector("#newUsername").value;
+  const password = document.querySelector("#newPassword").value;
+  localStorage.setItem("userName", userName);
+  loginOrCreate(userName, password, `/api/auth/create`);
   window.location.href = "play.html";
 }
 
 async function loginOrCreate(userName, password, endpoint) {
   const response = await fetch(endpoint, {
     method: 'post',
-    body: JSON.stringify({ email: userName, password: password }),
+    body: JSON.stringify({ userName: userName, password: password }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
