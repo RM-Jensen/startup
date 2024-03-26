@@ -25,7 +25,6 @@ app.set('trust proxy', true);
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-//todo: relies on DB.getUser, which uses email as username
 // CreateAuth token for a new user
 apiRouter.post('/auth/create', async (req, res) => {
   if (await DB.getUser(req.body.userName)) {
@@ -103,12 +102,7 @@ secureApiRouter.post('/score', async (req, res) => {
   res.send(scores);
 });
 
-secureApiRouter.post('/score', async (req, res) => {
-  const score = { ...req.body, ip: req.ip };
-  await DB.addScore(score);
-  const scores = await DB.getHighScores();
-  res.send(scores);
-});
+
 
 
 // Default error handler
