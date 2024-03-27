@@ -211,7 +211,7 @@ class Game {
         //player bust or blackjack is already handled
         var houseScore = this.checkScore(this.house);
         if (houseScore === 21) {
-            declareWinner(false, ' Blackjack!')
+            this.declareWinner(false, ' Blackjack!')
             return;
         }
         if (houseScore > 21) {
