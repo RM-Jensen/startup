@@ -33,7 +33,7 @@ class Game {
             document.querySelector('#gameInfo').innerHTML = '<p>You must set the stake to less than your balance (or 1)!</p>';
             return;
         }
-        this.broadcastEvent(this.getPlayerName, GameStartEvent, document.getElementById("stake").value);
+        this.broadcastEvent(this.getPlayerName(), GameStartEvent, document.getElementById("stake").value);
         //clean up images from last game, if present
         const houseCards = document.querySelector('#houseCards');
         houseCards.innerHTML = ''; //remove house card images
@@ -145,11 +145,11 @@ class Game {
         }
         else if (playerWon) {
             payout = stake;
-            this.broadcastEvent(this.getPlayerName, GameWinEvent, payout);
+            this.broadcastEvent(this.getPlayerName(), GameWinEvent, payout);
         }
         else {
             payout = -1 * stake;
-            this.broadcastEvent(this.getPlayerName, GameLoseEvent, payout);
+            this.broadcastEvent(this.getPlayerName(), GameLoseEvent, payout);
         }
 
         this.updateBalance(payout);
