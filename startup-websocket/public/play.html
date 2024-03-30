@@ -31,9 +31,12 @@
             <!-- deck, two hands (with cards), stake display/entry, two buttons, notifications
             when people change balance. looks like a mess without CSS -->
             <!-- add background here when doing CSS, right now it would make no sense-->
-            <span id="gameInfo">
-                <p>Set a stake and click deal to play!</p>
-            </span>
+            <div id = updates>
+                <span id="#playerMessages"></span>
+                <span id="gameInfo">
+                    <p>Set a stake and click deal to play!</p>
+                </span>
+            </div>
             <div id="deckAndInteraction">
                 <p>click deck to hit</p>
                 <img id="deck" alt="deck" src="card_back.png" onclick="game.hit()"/>

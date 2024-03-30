@@ -297,6 +297,12 @@ class Game {
     };
   }
 
+    
+  displayMsg(cls, from, msg) {
+    const chatText = document.querySelector('#playerMessages');
+    chatText.innerHTML = `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+  }
+
 
 }
 
