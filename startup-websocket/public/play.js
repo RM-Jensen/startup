@@ -296,11 +296,11 @@ class Game {
     this.socket.onmessage = async (event) => {
       const msg = JSON.parse(await event.data.text());
       if (msg.type === GameWinEvent) {
-        this.displayMsg('player', msg.from, `won $${msg.value.score}!`);
+        this.displayMsg('player', msg.from, `won $${msg.value}!`);
       } else if (msg.type === GameStartEvent) {
-        this.displayMsg('player', msg.from, `started a new game with a stake of $${msg.value.score}`);
+        this.displayMsg('player', msg.from, `started a new game with a stake of $${msg.value}`);
       } else if (msg.type === GameLoseEvent) {
-        this.displayMsg('player', msg.from, `lost $${msg.value.score}!`);
+        this.displayMsg('player', msg.from, `lost $${msg.value}!`);
       }
     };
   }
