@@ -81,5 +81,14 @@ For this deliverable I added backend endpoints that receives votes and returns t
 - **Backend service endpoints** - Endpoints for retrieving balance sheet from server and reporting a game result (and score adjustment) to the server. 
 - **Frontend calls service endpoints** - I did this using the fetch function.
 
+## Login Deliverable
+
+- MongoDB Atlas database created - done!
+- Stores data in MongoDB - done!
+- User registration - Creates a new account in the database.
+- existing user - login to an account to allow you to wager more points, up to the account's current score.
+- Use MongoDB to store credentials - Stores user and their score.
+- Restricts functionality - You cannot play the game unless logged in, and cannot update a user's score unless you're logged in as that user. 
+
 
 
