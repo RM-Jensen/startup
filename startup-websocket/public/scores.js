@@ -65,19 +65,4 @@ displayPicture();
   // mocking things
   loadScores();
 
-  setInterval(() => {
-    const score = Math.floor(Math.random() * 3000 - 1500);
-    const chatText = document.querySelector('#peerNotifications');
-
-    if (score < 0) {
-      chatText.innerHTML =
-      `<div class="event"><span class="player-event">Eich</span> just lost \$${score * -1}!</div>` +
-      chatText.innerHTML;
-    }
-    else {
-      chatText.innerHTML =
-      `<div class="event"><span class="player-event">Eich</span> just won \$${score}!</div>` +
-      chatText.innerHTML;
-    }
-  }, 5000);
   
