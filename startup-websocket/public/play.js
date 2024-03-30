@@ -292,7 +292,7 @@ class Game {
       if (msg.type === GameEndEvent) {
         this.displayMsg('player', msg.from, `scored ${msg.value.score}`);
       } else if (msg.type === GameStartEvent) {
-        this.displayMsg('player', msg.from, `started a new game`);
+        this.displayMsg('player', msg.from, `started a new game with a stake of $${msg.value.score}`);
       }
     };
   }
@@ -303,6 +303,14 @@ class Game {
     chatText.innerHTML = `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
   }
 
+  broadcastEvent(from, type, value) {
+    const event = {
+      from: from,
+      type: type,
+      value: value,
+    };
+    this.socket.send(JSON.stringify(event));
+  }
 
 }
 
