@@ -1,4 +1,7 @@
 
+const GameStartEvent = 'gameStart';
+const GameLoseEvent = 'gameLose';
+const GameWinEvent = 'gameWin';
 
 document.getElementById("nameDisplay").innerHTML = `${localStorage.getItem('userName')}`;
 
@@ -25,11 +28,12 @@ class Game {
             document.querySelector('#gameInfo').innerHTML = '<p>Log in to play!</p>';
             return;
         }
-        if (localStorage.getItem(this.getPlayerName()) < document.getElementById("stake").value
+        if (localStorage.getItem(this.getPlayerName()) < document.getElementById("stake").value //todo: this check is broken
                 && document.getElementById("stake").value > 1) {
             document.querySelector('#gameInfo').innerHTML = '<p>You must set the stake to less than your balance (or 1)!</p>';
             return;
         }
+        this.broadcastEvent(this.getPlayerName, GameStartEvent, document.getElementById("stake").value);
         //clean up images from last game, if present
         const houseCards = document.querySelector('#houseCards');
         houseCards.innerHTML = ''; //remove house card images
@@ -141,9 +145,11 @@ class Game {
         }
         else if (playerWon) {
             payout = stake;
+            this.broadcastEvent(this.getPlayerName, GameWinEvent, payout);
         }
         else {
             payout = -1 * stake;
+            this.broadcastEvent(this.getPlayerName, GameLoseEvent, payout);
         }
 
         this.updateBalance(payout);
@@ -289,10 +295,12 @@ class Game {
     };
     this.socket.onmessage = async (event) => {
       const msg = JSON.parse(await event.data.text());
-      if (msg.type === GameEndEvent) {
-        this.displayMsg('player', msg.from, `scored ${msg.value.score}`);
+      if (msg.type === GameWinEvent) {
+        this.displayMsg('player', msg.from, `won $${msg.value.score}!`);
       } else if (msg.type === GameStartEvent) {
         this.displayMsg('player', msg.from, `started a new game with a stake of $${msg.value.score}`);
+      } else if (msg.type === GameLoseEvent) {
+        this.displayMsg('player', msg.from, `lost $${msg.value.score}!`);
       }
     };
   }
