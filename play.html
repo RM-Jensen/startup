@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="play.css" />
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- Tell browsers not to scale the viewport automatically -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>21 to go HTML</title>
+     <!--   <link rel="icon" href="favicon.ico" /> -->
+    </head>
+    <body>
+        <!-- header contains the name of the app (which is being added and wasn't in 
+            original drawings), links to the four pages, and a box showing who you are logged 
+            in as.-->
+        <header>
+            <h1>21 To Go</h1>
+            <!-- Navigation elements -->
+            <nav>
+                <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
+                <menu>
+                <li><a href="index.html">Login</a></li>
+                <li><a href="play.html">Play</a></li>
+                <li><a href="scores.html">Scores</a></li>
+                </menu>
+            </nav>
+            <span id="nameDisplay">Super cool user</span>
+        </header>
+
+        <main>
+            <div id="firstRowItems">
+            <!-- deck, two hands (with cards), stake display/entry, two buttons, notifications
+            when people change balance. looks like a mess without CSS -->
+            <!-- add background here when doing CSS, right now it would make no sense-->
+            <div id = updates>
+                <span id="playerMessages"></span>
+                <span id="gameInfo">
+                    <p>Set a stake and click deal to play!</p>
+                </span>
+            </div>
+            <div id="deckAndInteraction">
+                <p>click deck to hit</p>
+                <img id="deck" alt="deck" src="card_back.png" onclick="game.hit()"/>
+                <button onclick="game.stand()"> stand </button>
+                </div>
+                
+            <form id="stakeForm" method="post" onsubmit="return false;">
+                <label for="stake">Stake ($): </label>
+                <input type="number" name="stake" id="stake" min="1" max="10" step="1" />
+                <button onclick="game.startGame()">Deal</button>
+            </form>
+
+            </div>
+            <ol id="houseCards">
+             <!--   <img id="houseCard1" alt="houseCard1" src="card_back.png"/>
+                <img id="houseCard2" alt="houseCard2" src="card_back.png"/>-->
+            </ol>
+
+            <ol id="playerCards">
+               <!-- <img id="playerCard1" alt="playerCard1" src="card_back.png"/>
+                <img id="playerCard2" alt="playerCard2" src="card_back.png"/>-->
+            </ol>
+
+        </main>
+        <footer>
+        <span class="text-reset">Ryan Jensen</span>
+        <a href="https://github.com/RM-Jensen/startup">GitHub</a>
+        </footer>
+        <script src="play.js"></script>
+    </body>
+</html>
