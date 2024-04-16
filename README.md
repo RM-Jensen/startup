@@ -88,7 +88,16 @@ For this deliverable I added backend endpoints that receives votes and returns t
 - User registration - Creates a new account in the database.
 - existing user - login to an account to allow you to wager more points, up to the account's current score.
 - Use MongoDB to store credentials - Stores user and their score.
-- Restricts functionality - You cannot play the game unless logged in, and cannot update a user's score unless you're logged in as that user. 
+- Restricts functionality - You cannot play the game unless logged in, and cannot update a user's score unless you're logged in as that user.
+
+## WebSocket Deliverable
+
+For this deliverable I used webSocket to update the votes on the frontend in realtime.
+
+- Backend listens for WebSocket connection - done!
+- Frontend makes WebSocket connection - done!
+- Data sent over WebSocket connection - done!
+- WebSocket data displayed - All users are informed when a player starts a game, wins, or loses!
 
 
 
