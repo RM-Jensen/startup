@@ -18,7 +18,7 @@ export default function App() {
   </header>
 
   <main>
-
+  <div className='body bg-dark text-light'>App will display here</div>;
   </main>
   <footer>
   <span class="text-reset">Ryan Jensen</span>
@@ -28,5 +28,4 @@ export default function App() {
 </div>)
   
   
-  <div className='body bg-dark text-light'>App will display here</div>;
 }
