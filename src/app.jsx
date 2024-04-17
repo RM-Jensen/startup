@@ -16,19 +16,19 @@ export default function App() {
             <h1>21 To Go</h1>
             <menu className='navbar-nav'>
             <li className='nav-item'>
-              <NavLink className='nav-link' to="login">Login</NavLink>
+              <NavLink className='nav-link' to=''>Login</NavLink>
               </li>
             <li className='nav-item'>
-              <NavLink className='nav-link' to="play">Play</NavLink>
+              <NavLink className='nav-link' to='play'>Play</NavLink>
               </li>
             <li className='nav-item'>
-              <NavLink className='nav-link' to="scores">Scores</NavLink>
+              <NavLink className='nav-link' to='scores'>Scores</NavLink>
               </li>
             </menu>
         </nav>
         
     </header>
-
+    
     <Routes>
       <Route path='/' element={<Login />} exact />
       <Route path='/play' element={<Play />} />
