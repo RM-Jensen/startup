@@ -12,8 +12,8 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    background-color: lightgray;
+    height: 100vh;
+    background-color: darkgray;
   }
   
   header {
@@ -23,8 +23,8 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      height: 45px;
-  }
+      flex: 0 80px;
+    }
   
   
   
@@ -32,12 +32,12 @@
       white-space: nowrap;
   }
   
-  header nav menu {
-      list-style-type: none;
-        display: flex;
-      flex-direction:  row;
-      align-items: center;
+  menu {
       flex: 1;
+      display: flex;
+      /*  overwrite Bootstrap so the menu does not wrap */
+      flex-direction: row !important;
+      list-style: none;
   }
   
   nav menu li {
@@ -78,7 +78,6 @@
       font-size: 14pt;
       display: flex;
       justify-content: right;
-      
   }
   
   @media (max-width: 460px) {
@@ -91,11 +90,11 @@
   }
   
   main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   }
   
   footer {
