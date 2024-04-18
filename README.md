@@ -99,5 +99,11 @@ For this deliverable I used webSocket to update the votes on the frontend in rea
 - Data sent over WebSocket connection - done!
 - WebSocket data displayed - All users are informed when a player starts a game, wins, or loses!
 
+## React Deliverable
+For this deliverable I converted the application over to use react. The 'play' option has been disabled because of persistant bugs, but fortunately the other pages include everything in the requirements for this deliverable.
 
+ Bundled using Vite - done!
+ Components - Login, Scores, and individual entries in the scores table are each implemented as react components
+ Router - Routing between login and scores component. Routing to play was disabled because it could crash the server. 
+ Hooks - Hooks including useState and useEffect are used in the implementation of Login and Scores (useEffect is in scores). 
 
