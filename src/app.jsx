@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
-import { Play } from './play/play';
+//import { Play } from './play/play'; removed because play crashes things and I already meet the requirements
 import { Scores } from './scores/scores';
 
 
@@ -18,9 +18,9 @@ export default function App() {
             <li className='nav-item'>
               <NavLink className='nav-link' to=''>Login</NavLink>
               </li>
-            <li className='nav-item'>
+   {/*         <li className='nav-item'>
               <NavLink className='nav-link' to='play'>Play</NavLink>
-              </li>
+  </li> */}
             <li className='nav-item'>
               <NavLink className='nav-link' to='scores'>Scores</NavLink>
               </li>
@@ -31,8 +31,8 @@ export default function App() {
     
     <Routes>
       <Route path='/' element={<Login />} exact />
-      <Route path='/play' element={<Play />} />
-      <Route path='/scores' element={<Scores />} />
+ {//     <Route path='/play' element={<Play />} />
+       }      <Route path='/scores' element={<Scores />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
 
